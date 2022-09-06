@@ -14,13 +14,14 @@
     You should have received a copy of the GNU Lesser General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
 */
 
-#ifndef JACK_WEAKJACK_H
-#define JACK_WEAKJACK_H
+#ifndef __weakjack_h__
+#define __weakjack_h__
 
 /**
- * @defgroup WeakLinkage managing support for newer/older versions of JACK
+ * @defgroup WeakLinkage Managing support for newer/older versions of JACK
  * @{ One challenge faced by developers is that of taking
  *    advantage of new features introduced in new versions
  *    of [ JACK ] while still supporting older versions of
@@ -59,7 +60,7 @@
  *    With normal symbol linkage, this would create a startup error whenever
  *    someone tries to run Jill with the "old" version of JACK. However, functions
  *    added to JACK after version 0.116.2 are all declared to have "weak" linkage
- *    which means that their abscence doesn't cause an error during program
+ *    which means that their absence doesn't cause an error during program
  *    startup. Instead, Jill can test whether or not the symbol jack_set_latency_callback
  *    is null or not. If its null, it means that the JACK installed on this machine
  *    is too old to support this function. If its not null, then Jill can use it
@@ -119,6 +120,6 @@
 #endif
 #endif
 
-/*@}*/
+/**@}*/
 
-#endif /* JACK_WEAKJACK_H */
+#endif /* weakjack */

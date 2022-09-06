@@ -18,8 +18,8 @@
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 */
 
-#ifndef JACK_SESSION_H
-#define JACK_SESSION_H
+#ifndef __jack_session_h__
+#define __jack_session_h__
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,7 +33,7 @@ extern "C" {
  *
  * @deprecated Use of JACK-Session is currently deprecated and unsupported.
  * JACK developers recommend the use of NSM instead.
- * See https://new-session-manager.jackaudio.org/
+ * See https://github.com/linuxaudio/new-session-manager
  * @{
  */
 
@@ -299,5 +299,4 @@ jack_client_has_session_callback (jack_client_t *client, const char *client_name
 #ifdef __cplusplus
 }
 #endif
-
-#endif /* JACK_SESSION_H */
+#endif

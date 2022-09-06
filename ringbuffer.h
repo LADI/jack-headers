@@ -1,27 +1,29 @@
 /*
-    Copyright (C) 2000 Paul Davis
-    Copyright (C) 2003 Rohan Drape
+  Copyright (C) 2000 Paul Davis
+  Copyright (C) 2003 Rohan Drape
+  
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU Lesser General Public License as published by
+  the Free Software Foundation; either version 2.1 of the License, or
+  (at your option) any later version.
+  
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU Lesser General Public License for more details.
+  
+  You should have received a copy of the GNU Lesser General Public License
+  along with this program; if not, write to the Free Software 
+  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU Lesser General Public License as published by
-    the Free Software Foundation; either version 2.1 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Lesser General Public License for more details.
-
-    You should have received a copy of the GNU Lesser General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 */
 
-#ifndef JACK_RINGBUFFER_H
-#define JACK_RINGBUFFER_H
+#ifndef _RINGBUFFER_H
+#define _RINGBUFFER_H
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #include <sys/types.h>
@@ -40,21 +42,19 @@ extern "C" {
  * identities cannot be interchanged.
  */
 
-typedef struct
-{
-  char  *buf;
-  size_t len;
+typedef struct {
+    char *buf;
+    size_t len;
 }
 jack_ringbuffer_data_t ;
 
-typedef struct
-{
-  char		 *buf;
-  volatile size_t write_ptr;
-  volatile size_t read_ptr;
-  size_t	  size;
-  size_t	  size_mask;
-  int		  mlocked;
+typedef struct {
+    char	*buf;
+    size_t	write_ptr;
+    size_t	read_ptr;
+    size_t	size;
+    size_t	size_mask;
+    int	mlocked;
 }
 jack_ringbuffer_t ;
 
@@ -99,7 +99,7 @@ void jack_ringbuffer_free(jack_ringbuffer_t *rb);
  *
  */
 void jack_ringbuffer_get_read_vector(const jack_ringbuffer_t *rb,
-				     jack_ringbuffer_data_t *vec);
+                                     jack_ringbuffer_data_t *vec);
 
 /**
  * Fill a data structure with a description of the current writable
@@ -121,7 +121,7 @@ void jack_ringbuffer_get_read_vector(const jack_ringbuffer_t *rb,
  * @param vec a pointer to a 2 element array of jack_ringbuffer_data_t.
  */
 void jack_ringbuffer_get_write_vector(const jack_ringbuffer_t *rb,
-				      jack_ringbuffer_data_t *vec);
+                                      jack_ringbuffer_data_t *vec);
 
 /**
  * Read data from the ringbuffer.
@@ -139,7 +139,7 @@ size_t jack_ringbuffer_read(jack_ringbuffer_t *rb, char *dest, size_t cnt);
  * Read data from the ringbuffer. Opposed to jack_ringbuffer_read()
  * this function does not move the read pointer. Thus it's
  * a convenient way to inspect data in the ringbuffer in a
- * continous fashion. The price is that the data is copied
+ * continuous fashion. The price is that the data is copied
  * into a user provided buffer. For "raw" non-copy inspection
  * of the data in the ringbuffer use jack_ringbuffer_get_read_vector().
  *
@@ -193,6 +193,16 @@ int jack_ringbuffer_mlock(jack_ringbuffer_t *rb);
 void jack_ringbuffer_reset(jack_ringbuffer_t *rb);
 
 /**
+ * Reset the internal "available" size, and read and write pointers, making an empty buffer.
+ *
+ * This is not thread safe.
+ *
+ * @param rb a pointer to the ringbuffer structure.
+ * @param sz the new size, that must be less than allocated size.
+ */
+void jack_ringbuffer_reset_size (jack_ringbuffer_t * rb, size_t sz);
+
+/**
  * Write data into the ringbuffer.
  *
  * @param rb a pointer to the ringbuffer structure.
@@ -202,7 +212,7 @@ void jack_ringbuffer_reset(jack_ringbuffer_t *rb);
  * @return the number of bytes write, which may range from 0 to cnt
  */
 size_t jack_ringbuffer_write(jack_ringbuffer_t *rb, const char *src,
-			     size_t cnt);
+                             size_t cnt);
 
 /**
  * Advance the write pointer.
@@ -226,9 +236,8 @@ void jack_ringbuffer_write_advance(jack_ringbuffer_t *rb, size_t cnt);
  */
 size_t jack_ringbuffer_write_space(const jack_ringbuffer_t *rb);
 
-
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* JACK_RINGBUFFER_H */
+#endif

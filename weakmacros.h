@@ -14,10 +14,11 @@
     You should have received a copy of the GNU Lesser General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
 */
 
-#ifndef JACK_WEAKMACROS_H
-#define JACK_WEAKMACROS_H
+#ifndef __weakmacros_h__
+#define __weakmacros_h__
 
 /*************************************************************
  * NOTE: JACK_WEAK_EXPORT ***MUST*** be used on every function
@@ -45,10 +46,29 @@
    the symbol it used with. For this to work full may
    require linker arguments in the client as well.
 */
-#define JACK_WEAK_EXPORT __attribute__((WEAK_ATTRIBUTE))
+
+#ifdef _WIN32
+    /*
+        Not working with __declspec(dllexport) so normal linking
+        Linking with JackWeakAPI.cpp will be the preferred way.
+    */
+    #define JACK_WEAK_EXPORT
+#else
+    #define JACK_WEAK_EXPORT __attribute__((WEAK_ATTRIBUTE))
+#endif
+
 #else
 /* Add other things here for non-gcc platforms */
+
+#ifdef _WIN32
+#define JACK_WEAK_EXPORT
 #endif
+
+#endif
+#endif
+
+#ifndef JACK_WEAK_EXPORT
+#define JACK_WEAK_EXPORT
 #endif
 
 #ifndef JACK_OPTIONAL_WEAK_EXPORT
@@ -60,7 +80,18 @@
 #define JACK_OPTIONAL_WEAK_DEPRECATED_EXPORT __attribute__((__deprecated__))
 #else
 /* Add other things here for non-gcc platforms */
-#endif /* __GNUC__ */
+
+#ifdef _WIN32
+#define JACK_OPTIONAL_WEAK_DEPRECATED_EXPORT
 #endif
 
-#endif /* JACK_WEAKMACROS_H */
+#endif /* __GNUC__ */
+
+#ifndef JACK_OPTIONAL_WEAK_DEPRECATED_EXPORT
+#define JACK_OPTIONAL_WEAK_DEPRECATED_EXPORT
+#endif
+
+#endif
+
+#endif /* __weakmacros_h__ */
+
