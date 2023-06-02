@@ -17,8 +17,23 @@
   You should have received a copy of the GNU General Public License
   along with this program; if not, write to the Free Software
   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-
 */
+
+/* An extended license from Nedko Anaudov follows:
+ *
+ * JACK control API (GPL or LGPL or MIT or AFL, pick the license that suits you)
+ *
+ * Implementators or users of this interface header file are granted rights
+ * under one of the licenses (pick any, pick one):
+ *
+ * * GPL-2.0-or-later
+ * * LGPL-2.1-or-later
+ * * MIT
+ * * AFL-2.1
+ */
+/* SPDX-FileCopyrightText: Copyright © 2008-2023 Nedko Arnaudov */
+/* SPDX-License-Identifier: GPL-2.0-or-later OR LGPL-2.1-or-later OR MIT OR AFL-2.1 */
+
 /**
  * @file   jack/control.h
  * @ingroup publicheader
