@@ -687,6 +687,11 @@ int jack_port_flags (const jack_port_t *port) JACK_OPTIONAL_WEAK_EXPORT;
 const char *jack_port_type (const jack_port_t *port) JACK_OPTIONAL_WEAK_EXPORT;
 
 /**
+ * @return the @a port type id.
+ */
+jack_port_type_id_t jack_port_type_id (const jack_port_t *port) JACK_OPTIONAL_WEAK_EXPORT;
+
+/**
  * @return TRUE if the jack_port_t belongs to the jack_client_t.
  */
 int jack_port_is_mine (const jack_client_t *, const jack_port_t *port) JACK_OPTIONAL_WEAK_EXPORT;

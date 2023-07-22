@@ -95,6 +95,8 @@ typedef struct _jack_client  jack_client_t;
  */
 typedef uint32_t	     jack_port_id_t;
 
+typedef int32_t jack_port_type_id_t;
+
 /**
  *  @ref jack_options_t bits
  */
