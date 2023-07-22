@@ -78,6 +78,9 @@ extern "C" {
 } /* Adjust editor indent */
 #endif
 
+/** opaque type for sigmask object */
+typedef struct jackctl_sigmask jackctl_sigmask_t;
+
 /**
  * @defgroup ControlAPI the API for starting and controlling a JACK server
  * @{
@@ -92,7 +95,7 @@ extern "C" {
  *
  * @return the configurated signal set.
  */
-sigset_t
+jackctl_sigmask_t *
 jackctl_setup_signals(
     unsigned int flags);
 
