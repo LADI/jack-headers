@@ -106,6 +106,15 @@ jackctl_wait_signals(
     sigset_t signals);
 
 /**
+ * Call this function to get version of the JACK, in form of a string
+ *
+ * @return Human readable string describing JACK version being used.
+ *
+ */
+const char *
+jack_get_version_string(void);
+
+/**
  * Call this function to create server object.
  *
  * @param on_device_acquire - Optional callback to be called before device is acquired. If false is returned, device usage will fail
