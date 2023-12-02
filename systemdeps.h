@@ -19,6 +19,9 @@
 #ifndef JACK_SYSTEMDEPS_H
 #define JACK_SYSTEMDEPS_H
 
+/* C99 uint32_t and others */
+#include <stdint.h>
+
 #ifndef POST_PACKED_STRUCTURE
 
     #ifdef __GNUC__
