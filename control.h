@@ -104,9 +104,21 @@ jackctl_setup_signals(
  *
  * @param signals signals set to wait on
  */
+
 void
 jackctl_wait_signals(
-    sigset_t signals);
+    jackctl_sigmask_t * signals);
+
+
+/**
+ * Call this function after waiting on a signal set.
+ *
+ * @param signals signals set to finalize
+ */
+
+void
+jackctl_finish_signals(
+    jackctl_sigmask_t * signals);
 
 /**
  * Call this function to get version of the JACK, in form of a string
