@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2008 Nedko Arnaudov
+    Copyright (C) 2008-2003 Nedko Arnaudov
     Copyright (C) 2008 GRAME
 
     This program is free software; you can redistribute it and/or modify
@@ -26,9 +26,10 @@
 #ifndef JACK_CONTROL_H
 #define JACK_CONTROL_H
 
+#include <jack/types.h>
 #include <jack/jslist.h>
-
-#if !defined (__sun__)
+#include <jack/systemdeps.h>
+#if !defined(sun) && !defined(__sun__)
 #include <stdbool.h>
 #endif
 
