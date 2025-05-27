@@ -21,12 +21,12 @@
 #ifndef __statistics_h__
 #define __statistics_h__
 
+#include <jack/types.h>
+
 #ifdef __cplusplus
 extern "C"
 {
 #endif
-
-#include <jack/types.h>
 
 /**
  * @return the maximum delay reported by the backend since
