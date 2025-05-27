@@ -20,11 +20,11 @@
 #ifndef JACK_RINGBUFFER_H
 #define JACK_RINGBUFFER_H
 
+#include <sys/types.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <sys/types.h>
 
 /** @file ringbuffer.h
  *

@@ -20,13 +20,13 @@
 #ifndef JACK_JACK_H
 #define JACK_JACK_H
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include <jack/systemdeps.h>
 #include <jack/types.h>
 #include <jack/transport.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * Note: More documentation can be found in jack/types.h.

@@ -19,11 +19,11 @@
 #ifndef JACK_INTCLIENT_H
 #define JACK_INTCLIENT_H
 
+#include <jack/types.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <jack/types.h>
 
 /**
  * Get an internal client's name.  This is useful when @ref

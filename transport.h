@@ -20,12 +20,12 @@
 #ifndef JACK_TRANSPORT_H
 #define JACK_TRANSPORT_H
 
+#include <jack/types.h>
+#include <jack/weakmacros.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <jack/types.h>
-#include <jack/weakmacros.h>
 
 /**
  * Transport states.

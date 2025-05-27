@@ -21,12 +21,12 @@
 #ifndef JACK_SESSION_H
 #define JACK_SESSION_H
 
+#include <jack/types.h>
+#include <jack/weakmacros.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include <jack/types.h>
-#include <jack/weakmacros.h>
 
 /**
  * @defgroup SessionClientFunctions Session API for clients.
